@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 240" width="840" height="240" role="img" aria-labelledby="title desc">
+  <title id="title">Hi, forks! I'm Koya Masuda (@koxya)</title>
+  <desc id="desc">Backend-focused web engineer since 2021</desc>
+
+  <style>
+    :root {
+      --bg-from: #0b1020;
+      --bg-to: #161b33;
+      --border: #2a3156;
+      --grid: #ffffff;
+      --name: #f4f6ff;
+      --muted: #9aa4c7;
+      --accent: #7c9cff;
+      --blob-a: #5b7cfa;
+      --blob-b: #c26bff;
+      --blob-c: #2dd4bf;
+      --blob-opacity: 0.55;
+      --grid-opacity: 0.05;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-from: #f7f8ff;
+        --bg-to: #eceffd;
+        --border: #d5dbf5;
+        --grid: #1b2559;
+        --name: #141a3a;
+        --muted: #5a648c;
+        --accent: #3f5fe0;
+        --blob-a: #8aa2ff;
+        --blob-b: #dba6ff;
+        --blob-c: #7fe6d8;
+        --blob-opacity: 0.6;
+        --grid-opacity: 0.06;
+      }
+    }
+
+    .bg-from { stop-color: var(--bg-from); }
+    .bg-to { stop-color: var(--bg-to); }
+    .frame { fill: none; stroke: var(--border); }
+    .grid { stroke: var(--grid); opacity: var(--grid-opacity); }
+    .blob { opacity: var(--blob-opacity); transform-box: fill-box; transform-origin: center; }
+    .blob-a { fill: var(--blob-a); animation: drift-a 14s ease-in-out infinite alternate; }
+    .blob-b { fill: var(--blob-b); animation: drift-b 18s ease-in-out infinite alternate; }
+    .blob-c { fill: var(--blob-c); animation: drift-c 16s ease-in-out infinite alternate; }
+
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    .name { fill: var(--name); font-size: 42px; font-weight: 700; letter-spacing: -0.5px; }
+    .hi { fill: var(--muted); font-weight: 500; }
+    .handle { fill: var(--accent); font-size: 18px; }
+    .prompt { fill: var(--accent); font-size: 16px; }
+    .tagline { fill: var(--muted); font-size: 16px; }
+    .cursor { fill: var(--accent); }
+
+    .rise { opacity: 0; animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+    .rise-2 { animation-delay: 0.15s; }
+    .rise-3 { animation-delay: 0.3s; }
+
+    .reveal { transform-box: fill-box; transform-origin: left center; animation: type 9s infinite; }
+    .cursor-move { animation: cursor-move 9s infinite; }
+    .cursor { animation: blink 1s steps(2, jump-none) infinite; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes type {
+      0%, 8% { transform: scaleX(0); animation-timing-function: steps(39, end); }
+      40%, 88% { transform: scaleX(1); animation-timing-function: steps(39, end); }
+      100% { transform: scaleX(0); }
+    }
+    @keyframes cursor-move {
+      0%, 8% { transform: translateX(0); animation-timing-function: steps(39, end); }
+      40%, 88% { transform: translateX(374px); animation-timing-function: steps(39, end); }
+      100% { transform: translateX(0); }
+    }
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    @keyframes drift-a {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(-60px, 30px) scale(1.15); }
+    }
+    @keyframes drift-b {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(50px, -40px) scale(0.9); }
+    }
+    @keyframes drift-c {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(-40px, -30px) scale(1.2); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blob, .rise, .reveal, .cursor-move, .cursor { animation: none; }
+      .rise { opacity: 1; }
+      .cursor-move { transform: translateX(374px); }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="bg-from"/>
+      <stop offset="1" class="bg-to"/>
+    </linearGradient>
+    <clipPath id="card">
+      <rect width="840" height="240" rx="16"/>
+    </clipPath>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="48"/>
+    </filter>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" class="grid" stroke-width="1"/>
+    </pattern>
+    <clipPath id="typed">
+      <rect class="reveal" x="80" y="160" width="374" height="28"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="840" height="240" fill="url(#bg)"/>
+    <g filter="url(#blur)">
+      <circle class="blob blob-a" cx="690" cy="50" r="110"/>
+      <circle class="blob blob-b" cx="790" cy="210" r="100"/>
+      <circle class="blob blob-c" cx="560" cy="250" r="70"/>
+    </g>
+    <rect width="840" height="240" fill="url(#grid)"/>
+  </g>
+  <rect class="frame" x="0.5" y="0.5" width="839" height="239" rx="15.5"/>
+
+  <g class="rise">
+    <text class="sans name" x="56" y="104"><tspan class="hi">Hi, forks</tspan> 👋 <tspan class="hi">I'm</tspan> Koya Masuda</text>
+  </g>
+  <g class="rise rise-2">
+    <text class="mono handle" x="58" y="140">@koxya</text>
+  </g>
+  <g class="rise rise-3">
+    <text class="mono prompt" x="58" y="180">$</text>
+    <text class="mono tagline" x="80" y="180" textLength="374" lengthAdjust="spacingAndGlyphs" clip-path="url(#typed)">Backend-focused web engineer since 2021</text>
+    <g class="cursor-move">
+      <rect class="cursor" x="82" y="165" width="9" height="19" rx="1"/>
+    </g>
+  </g>
+</svg>
